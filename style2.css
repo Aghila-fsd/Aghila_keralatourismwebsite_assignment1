@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.myMargin
+{
+margin: 25px;
+}
+body{
+    background-image: url('PICTURES/wp2626181-nature-hd-3d-wallpapers-1080p-widescreen.jpg');
+    background-size:cover;
+}
+.login{
+    border: 5px solid chocolate;
+    background-color: beige;
+    height: 25em;
+    margin-top: 5%;
+    padding: 30px;
+}

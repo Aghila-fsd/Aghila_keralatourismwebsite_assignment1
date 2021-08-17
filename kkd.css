@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.myMargin
+{
+margin: 25px;
+}
+body{
+    background-image: url('../PICTURES/kozhikkod/unnamed.jpg');
+    background-size:relative;
+    background-image:norepeat;
+}
+.text{
+    font-family:cursive;
+    font-size:50px;
+    font-weight: bold;
+    color:tomato;
+}
