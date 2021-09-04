@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.myMargin
+{
+margin: 25px;
+}
+body{
+    
+    /*background-image: url('PICTURES/malappuram/Bharathapuzha-river1.jpg');*/
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+.d-flex {
+    margin-left: auto;
+  }
+  
+.text
+{
+    font-family:cursive;
+    font-size:50px;
+    font-weight: bold;
+    color:tomato;
+}

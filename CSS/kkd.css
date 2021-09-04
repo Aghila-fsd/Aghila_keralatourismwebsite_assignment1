@@ -7,10 +7,15 @@
 margin: 25px;
 }
 body{
-    background-image: url('../PICTURES/kannur/muthappan.jpg');
-    background-size:absolute;
-    background-image:no-repeat;
+    
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
 }
+.d-flex {
+    margin-left: auto;
+  }
+  
 .text{
     font-family:cursive;
     font-size:50px;

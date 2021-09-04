@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.myMargin
+{
+margin: 25px;
+}
+body{
+    
+    /*background-image: url('../PICTURES/eranakulam/backwaters-red-sunset-india-kochi-wallpaper-preview.jpg');*/
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.d-flex {
+    margin-left: auto;
+  }
+  
+.text{
+    font-family:cursive;
+    font-size:50px;
+    font-weight: bold;
+    color:blanchedalmond;
+}

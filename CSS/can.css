@@ -7,10 +7,16 @@
 margin: 25px;
 }
 body{
-    background-image: url('../PICTURES/wp2626181-nature-hd-3d-wallpapers-1080p-widescreen.jpg');
+    /*background-image: url('PICTURES/kannur/muthappan.jpg');*/
     background-size:cover;
-    background-image:norepeat;
+    background-position: center;
+    background-attachment: fixed;
+
 }
+.d-flex {
+    margin-left: auto;
+  }
+  
 .text{
     font-family:cursive;
     font-size:50px;
