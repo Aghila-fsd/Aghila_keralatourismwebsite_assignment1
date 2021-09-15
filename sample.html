@@ -1,39 +1,223 @@
-<html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-        <script>
-            var myApp = angular.module("myapp", []);
-            myApp.controller("PasswordController", function($scope) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 
-                var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-                var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-
-                $scope.passwordStrength = {
-                    "float": "left",
-                    "width": "100px",
-                    "height": "25px",
-                    "margin-left": "5px"
-                };
-
-                $scope.analyze = function(value) {
-                    if(strongRegex.test(value)) {
-                        $scope.passwordStrength["background-color"] = "green";
-                    } else if(mediumRegex.test(value)) {
-                        $scope.passwordStrength["background-color"] = "orange";
-                    } else {
-                        $scope.passwordStrength["background-color"] = "red";
-                    }
-                };
-
-            });
-        </script>
-    </head>
-    <body ng-app="myapp">
-        <div ng-controller="PasswordController">
-            <div style="float: left; width: 100px">
-                <input type="text" ng-model="password" ng-change="analyze(password)" style="width: 100px; height: 25px" />
-            </div>
-            <div ng-style="passwordStrength"></div>
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 myMargin">
+      <div class="signup" >
+    <div>
+     <h3>REGISTRATION</h3>
+    <form class="row g-5" name="registration">
+       <div class="col-md-5">
+        <form id="myForm" action="index.html"   onsubmit="return validatebutton()" style="width: 100%;margin: auto;" >
+          
+          <!-- name -->
+          <label for="name">UserName</label> 
+             
+            <input type="text"  required placeholder="name"  class="form-control" id="namee" onkeyup="return nameval()" height="40px" width="280px" >   
+            
+            
+            <label for="nameerror" id="nameerror"></label>
+            
+          <!-- phone number -->
+            <label for="phonenum">Phone Number</label> 
+            <br>   
+             <input type="text" required placeholder="phone number" size="13"  class="form-control " id="phno" onkeyup="return phonenumb()" >   
+             <br> 
+             
+             <label for="phnoerror" id="phnoerror"></label>
+             <br>
+           
+            <!-- email -->
+            <label for="email">Email</label> 
+           <br>   
+            <input type="text" required placeholder="email" size="13" class="form-control" id="email" onkeyup="return validate()"  >   
+            <br> 
+            
+            <label for="error" id="error"></label>
+            <br>
+    
+           <div class="container_p">
+             <label for="email">Password</label> 
+             <div class="field">
+                
+       
+                   <input class="input_p form-control" id="psw" onkeyup="trigger()" required  type="password"  placeholder="Type password"  size="13" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"    >
+                   <span class="showBtn">SHOW</span>
+                </div>
+                <div class="indicator" style="display: flex;">
+                   <span class="weak"></span>
+                   <span class="medium"></span>
+                   <span class="strong"></span>
+                </div>
+                <div class="text_p"></div>
+             
+          </div>
+          <div id="message"  >
+           <h5>Password must contain the following:</h5>
+           <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+           <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+           <p id="number" class="invalid">A <b>number</b></p>
+           <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+         </div>
+       <!-- </form> -->
+          <script>
+             const indicator = document.querySelector(".indicator");
+             var input_p = document.querySelector(".input_p");
+             
+             const weak = document.querySelector(".weak");
+             const medium = document.querySelector(".medium");
+             const strong = document.querySelector(".strong");
+             const text_p = document.querySelector(".text_p");
+             const showBtn = document.querySelector(".showBtn");
+              let regExpWeak = /[a-z]/;
+              let regExpMedium = /[A-Z]/;
+             let regExpStrong = /\d+/;
+             function trigger(){
+       
+       
+       
+       // Validate lowercase letters
+       var lowerCaseLetters = /[a-z]/g;
+         if(input_p.value.match(lowerCaseLetters)) {  
+           letter.classList.remove("invalid");
+           letter.classList.add("valid");
+         } else {
+           letter.classList.remove("valid");
+           letter.classList.add("invalid");
+         }
+         
+         // Validate capital letters
+         var upperCaseLetters = /[A-Z]/g;
+         if(input_p.value.match(upperCaseLetters)) {  
+           capital.classList.remove("invalid");
+           capital.classList.add("valid");
+         } else {
+           capital.classList.remove("valid");
+           capital.classList.add("invalid");
+         }
+       
+         // Validate numbers
+         var numbers = /[0-9]/g;
+         if(input_p.value.match(numbers)) {  
+           number.classList.remove("invalid");
+           number.classList.add("valid");
+         } else {
+           number.classList.remove("valid");
+           number.classList.add("invalid");
+         }
+         
+         // Validate length
+         if(input_p.value.length >= 8) {
+           length.classList.remove("invalid");
+           length.classList.add("valid");
+         } else {
+           length.classList.remove("valid");
+           length.classList.add("invalid");
+         }
+       
+       
+       
+               if(input_p.value != ""){
+                 indicator.style.display = "block";
+                 indicator.style.display = "flex";
+                 if(input_p.value.length <= 3 && (input_p.value.match(regExpWeak) || input_p.value.match(regExpMedium) || input_p.value.match(regExpStrong)))no=1;
+                 if(input_p.value.length >= 6 && ((input_p.value.match(regExpWeak) && input_p.value.match(regExpMedium)) || (input_p.value.match(regExpMedium) && input_p.value.match(regExpStrong)) || (input_p.value.match(regExpWeak) && input_p.value.match(regExpStrong))))no=2;
+                 if(input_p.value.length >= 8 && input_p.value.match(regExpWeak) && input_p.value.match(regExpMedium) && input_p.value.match(regExpStrong))no=3;
+                 if(no==1){
+                   weak.classList.add("active");
+                   text_p.style.display = "block";
+                   text_p.textContent = "Your password is too week";
+                   text_p.classList.add("weak");
+                 }
+                 if(no==2){
+                   medium.classList.add("active");
+                   text_p.textContent = "Your password is medium";
+                   text_p.classList.add("medium");
+                 }else{
+                   medium.classList.remove("active");
+                   text_p.classList.remove("medium");
+                 }
+                 if(no==3){
+                   weak.classList.add("active");
+                   medium.classList.add("active");
+                   strong.classList.add("active");
+                   text_p.textContent = "Your password is strong";
+                   text_p.classList.add("strong");
+                 }else{
+                   strong.classList.remove("active");
+                   text_p.classList.remove("strong");
+                 }
+                 showBtn.style.display = "block";
+                 showBtn.onclick = function(){
+                   if(input_p.type == "password"){
+                     input_p.type = "text";
+                     showBtn.textContent = "HIDE";
+                     showBtn.style.color = "#23ad5c";
+                   }else{
+                     input_p.type = "password";
+                     showBtn.textContent = "SHOW";
+                     showBtn.style.color = "#000";
+                   }
+                 }
+               }else{
+                 indicator.style.display = "none";
+                 text_p.style.display = "none";
+                 showBtn.style.display = "none";
+               }
+             }
+         
+         // When the user clicks on the password field, show the message box
+         input_p.onfocus = function() {
+         document.getElementById("message").style.display = "block";
+       }
+         
+       // When the user clicks outside of the password field, hide the message box
+       input_p.onblur = function() {
+         document.getElementById("message").style.display = "none";
+       }
+       
+       
+       
+         
+         
+         </script>
+       <br>
+           <label for="password">Confirm Password</label>  
+           <br>    
+           <input type="password"  placeholder="confirm password"  size="13" id="confpsw" name="psw"   required  class="form-control form-control-lg" onkeyup="return matchPassword()"  >
+           
+           <br> 
+           <label for="passworderror" id="confpwderror"></label>
+           <br>
+     </form> 
+         
+           
+       
+           <script>
+             function myFunction1() {
+               document.getElementById("myForm").reset();
+             }
+             </script>
+       
+      <div class="col-12">
+          <br>
+          <button type="submit" class="btn btn-primary"onclick>Register</button>
         </div>
+    </form>
+    <script src="signup.js"></script>
+    </div>
+    </div>
+    </div>
+      <!--sign up form end-->
+          
     </body>
-</html>
+    </html>

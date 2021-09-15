@@ -37,7 +37,7 @@
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
     </div>
   </div>
 </nav>
@@ -49,131 +49,58 @@
   <div class="col-lg-4 myMargin"> 
     <div>
       <div class="login">
-        <script type="text/javascript">
-          function checkForm(form)
-                  {   let =getElementById("email");
-                     if(email.value.trim()==""||pwd.value.trim()==""){
-                      alert("feilds cann't be blank");
-                      form.email.focus();
-                      return  false;
-                   
-              var regexp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}?\w+)*(.[a-z]{2,3}?)$/;
-                   if(!regexp.test(email.value)){
-                
-                   error.innerHTML="invalid";
-                   error.style.color="red";
-                   email.style.border='2px solid red';
-                   form.email.focus();
-                   return false;
-                 
-                  if(form.pwd.value!=""){
-                    if(form.pwd.value.length<8){
-                        alert("Error: Password must contain at least eight characters!");
-                        form.pwd.focus();
-                        return false;
-                    } 
-                  if(form.pwd.value == form.email.value) {
-                    alert("Error: Password must be different from Emailid!");
-                    form.pwd.focus();
-                    return false;
-                  }
-                  re = /[0-9]/;
-                  if(!re.test(form.pwd.value)) {
-                    alert("Error: password must contain at least one number (0-9)!");
-                    form.pwd.focus();
-                    return false;
-                  }
-                  re = /[a-z]/;
-                  if(!re.test(form.pwd.value)) {
-                    alert("Error: password must contain at least one lowercase letter (a-z)!");
-                    form.pwd.focus();
-                    return false;
-                  }
-                  re = /[A-Z]/;
-                  if(!re.test(form.pwd.value)) {
-                    alert("Error: password must contain at least one uppercase letter (A-Z)!");
-                    form.pwd.focus();
-                    return false;
-                  }
-                } 
-                else {
-                  alert("Error: Please check that you've entered your password!");
-                  form.pwd.focus();
-                  return false;
-                }
-                
-               alert("You entered a valid password: " + form.pwd.value);
-                return true;
-              } else
-            {  alert("you entered a vaiid email id");
-                  
-                 error.innerHTML="valid";
-                  error.style.color="green";
-                 return true;
-                }
-                alert("suceessfully login");
-                }
-                  }
-
-            </script>
   
-    <form  name="form"action="explore.html"onsubmit="return checkForm(this);">
-      
+    <!--<form  name="form" type="submit" action="explore.html"onsubmit="return main(); ">-->
+      <form action="explore.html" onsubmit="return main()">
+
   
       <h3>USER LOGIN</h3>        
       <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="text"class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
+          <label for="email">Email address</label>
+          <!--<input type="text" required placeholder="Email"  class="form-control form-control-lg" id="email" onkeyup="return validate();"  >-->
+          <input type="text" required placeholder="Email" size="13" class="form-control" id="email" onkeyup="return validate();"  >   
+
+          
           <label for="error"id="error"</label>
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
           
-        <!--</div>-->
+        </div>
         
       
           <div class="mb-3">
           
-          <!--<label for="password" class="form-label">Password</label>
+          <!--<label for="password" class="form-label">Password</label>-->
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password">-->
-          <label for="password">Password</label>
-          <input name="pwd" type="password" id="password">
-          <meter max="4" id="password-strength"></meter>
-          <p id="password-strength-text"></p>
-          <script type="text/javascript">
-            var strength = {
-                0: "Weakest",
-                1: "Weak",
-                2: "OK",
-                3: "Good",
-                4: "Strong"
-              }
-               
-              var password = document.getElementById('password');
-              var meter = document.getElementById('password-strength');
-              var text = document.getElementById('password-strength-text');
+          <input type="password" placeholder="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  class="form-control form-control-lg"   >
+          <input type="checkbox" onclick="myFunction()">Show Password 
+          
+      <label for="passworderror" id="pwderror"></label>
+          
    
-              password.addEventListener('input', function() {
-                  var val = password.value;
-                  var result = zxcvbn(val);
-   
-                  // This updates the password strength meter
-                  meter.value = result.score;
-   
-                  // This updates the password meter text
-                  if (val !== "") {
-                      text.innerHTML = "Password Strength: " + strength[result.score]; 
-                  } else {
-                      text.innerHTML = "";
-                  }
-              });
-          </script>
-        
-       <button id="submit" class="btn btn-primary" onclick="return checkForm(this);" value="submit form">Submit</button>
+     
+      <script>
+         function myFunction() {
+           var e= document.getElementById("psw");
+           if (e.type === "password") {
+             e.type = "text";
+           } else {
+             e.type = "password";
+           }
+         }
+         </script>
+    
+
+
+
+
+
+         <br>
+       <button id="submit" class="btn btn-outline-success">Submit</button>
          <br>
          <h6>Need an account?</h6>
          <a href="signup.html">Signup</a>
         </form>
-      <!--<script src="login.js"></script>-->
+      <script src="login.js"></script>
       
 </div>   
 </div>
@@ -181,6 +108,7 @@
 </div>
 </div>
 </div>
+
 <!--login end-->
 </body>
 </html>
